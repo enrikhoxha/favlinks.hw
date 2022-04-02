@@ -5,13 +5,13 @@ const TableHeader = () => {
   return (
     <thead>
       <tr>
-        <th>Name</th>
-        <th>URL</th>
-        <th>Remove</th>
+        <th>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Name&emsp;&emsp;&emsp;</th> 
+        <th>&emsp;&emsp;&emsp;&emsp;&emsp;URL&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</th> 
+        <th>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Remove</th>
       </tr>
     </thead>
-  )
-}
+  );
+};
 
 const TableBody = (props) => {
   // boilerplate table body functional component
@@ -19,24 +19,29 @@ const TableBody = (props) => {
   const rows = props.linkData.map((row, index) => {
     return (
       <tr key={index}>
-        <td>{row.name}</td>
+        <td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{row.linkname}</td>
         <td>
-          <a href={row.URL}>{row.URL}</a>
+        &emsp;&emsp;&emsp;<a href={row.url}>{row.url}</a>
         </td>
         <td>
-          <button onClick={() => props.removeLink(index)}>Delete</button>
+        &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <button onClick={() => props.removeLink(index)}>Delete</button>
         </td>
       </tr>
-    )
-  })
+    );
+  });
 
-  return <tbody>{rows}</tbody>
-}
+  return <tbody>{rows}</tbody>;
+};
 
 const Table = (props) => {
   {
     /*TODO - return <table> component, TableHeader and TableBody  and pass props!*/
+    return (
+      <table> 
+      <TableHeader /> 
+      <TableBody linkData={props.linkData} removeLink={props.removeLink} /> 
+      </table>)
   }
-}
+};
 
-export default Table
+export default Table;
